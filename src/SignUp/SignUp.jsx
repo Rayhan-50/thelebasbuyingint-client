@@ -500,19 +500,39 @@ const SignUp = () => {
     };
 
     return (
-        <div className="min-h-screen w-full bg-[#0A3D91] flex fixed inset-0">
+        <div className="min-h-screen w-full bg-gradient-to-br from-deep-teal to-mint-green flex fixed inset-0">
             {/* Left Section with Illustration */}
-            <div className="hidden lg:flex lg:w-1/2 bg-[#FAF3E0] items-center justify-center p-12">
-                <div className="max-w-lg">
-                    <h2 className="text-4xl font-bold text-[#111827] mb-6">Join <span className="text-[#0A3D91]">NoorVia BD</span> Today!</h2>
-                    <p className="text-xl text-[#111827]/90 mb-8">Connect with a community of professionals and entrepreneurs. Share knowledge, discover opportunities, and grow together.</p>
+            <div className="hidden lg:flex lg:w-1/2 bg-warm-beige items-center justify-center p-12 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-10 left-10 w-20 h-20 bg-mint-green/30 rounded-full animate-float"></div>
+                    <div className="absolute bottom-20 right-20 w-16 h-16 bg-deep-teal/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+                    <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-light-sky-blue/20 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
+                </div>
+                
+                <div className="max-w-lg relative z-10">
+                    {/* Logo */}
+                    <div className="mb-8">
+                        <img
+                            src="/src/assets/logo_lebas.png"
+                            alt="The Lebas Buying"
+                            className="h-16 w-auto mx-auto mb-4"
+                        />
+                        <h2 className="text-4xl font-bold font-space-grotesk text-charcoal text-center">
+                            Join <span className="text-deep-teal">The Lebas Buying</span>
+                        </h2>
+                    </div>
+                    
+                    <p className="text-xl font-dm-sans text-charcoal/80 mb-8 leading-relaxed text-center">
+                        Crafting Quality<br className="hidden sm:inline" />Garments with Precision
+                    </p>
                     
                     {/* Login Button */}
                     <div className="text-center">
-                        <p className="text-[#6B7280] mb-4">Already have an account?</p>
+                        <p className="text-charcoal/70 font-dm-sans mb-4">Already have an account?</p>
                         <Link 
                             to="/login" 
-                            className="inline-block bg-[#D0A96A] hover:bg-[#B8945A] text-[#111827] px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                            className="btn-elevated px-8 py-4 rounded-xl"
                         >
                             Login Here
                         </Link>
@@ -521,12 +541,17 @@ const SignUp = () => {
             </div>
 
             {/* Right Section with Form */}
-            <div className="w-full lg:w-1/2 bg-[#FAF3E0] flex items-center justify-center p-6 overflow-y-auto">
+            <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 overflow-y-auto">
                 <div className="w-full max-w-md space-y-8">
                     {/* Header */}
                     <div className="text-center mt-8">
-                        <h1 className="text-3xl font-bold text-[#0A3D91] mb-2">Welcome!</h1>
-                        <p className="text-[#6B7280]">Create your account to get started</p>
+                        <img
+                            src="/src/assets/logo_lebas.png"
+                            alt="The Lebas Buying"
+                            className="h-12 w-auto mx-auto mb-4 lg:hidden"
+                        />
+                        <h1 className="text-3xl font-bold font-space-grotesk text-deep-teal mb-2">Welcome!</h1>
+                        <p className="text-charcoal/70 font-dm-sans">Create your account to get started</p>
                     </div>
 
                     {/* Sign Up Form */}
@@ -538,16 +563,16 @@ const SignUp = () => {
                                     type="text"
                                     placeholder="Your name *"
                                     {...register("name", { required: "Name is required" })}
-                                    className="w-full px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                 />
                                 {errors.name && (
-                                    <span className="text-[#B91C1C] text-sm mt-1">{errors.name.message}</span>
+                                    <span className="text-copper text-sm mt-1 font-dm-sans">{errors.name.message}</span>
                                 )}
                             </div>
 
                             {/* Photo Upload */}
                             <div className="space-y-2">
-                                <label className="block text-sm font-medium text-[#111827] mb-1">
+                                <label className="block text-sm font-medium text-charcoal mb-1 font-dm-sans">
                                     Profile Photo
                                 </label>
                                 <div className="space-y-2">
@@ -561,22 +586,22 @@ const SignUp = () => {
                                         />
                                         <label
                                             htmlFor="photo-upload"
-                                            className="cursor-pointer inline-flex items-center px-4 py-2 border border-[#E5E7EB] rounded-md shadow-sm text-sm font-medium text-[#111827] bg-white hover:bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A3D91] transition-colors"
+                                            className="cursor-pointer inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-charcoal bg-white hover:bg-warm-beige focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mint-green transition-colors"
                                         >
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-[#6B7280]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-charcoal/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                             </svg>
                                             Choose Photo
                                         </label>
-                                        <span className="text-sm text-[#6B7280]">or</span>
+                                        <span className="text-sm text-charcoal/60 font-dm-sans">or</span>
                                     </div>
                                     <input
                                         type="text"
                                         placeholder="Enter photo URL"
                                         {...register("photoURL")}
-                                        className="w-full px-4 py-2 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] text-sm transition-colors"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal text-sm transition-colors"
                                     />
-                                    <p className="text-xs text-[#6B7280]">
+                                    <p className="text-xs text-charcoal/60 font-dm-sans">
                                         Upload a photo or provide an image URL
                                     </p>
                                 </div>
@@ -588,10 +613,10 @@ const SignUp = () => {
                                     type="email"
                                     placeholder="Your email address *"
                                     {...register("email", { required: "Email is required" })}
-                                    className="w-full px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                 />
                                 {errors.email && (
-                                    <span className="text-[#B91C1C] text-sm mt-1">{errors.email.message}</span>
+                                    <span className="text-copper text-sm mt-1 font-dm-sans">{errors.email.message}</span>
                                 )}
                             </div>
 
@@ -612,12 +637,12 @@ const SignUp = () => {
                                                 message: "Password must include uppercase, lowercase, number and special character"
                                             }
                                         })}
-                                        className="w-full px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                     />
                                     <button
                                         type="button"
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#6B7280] hover:text-[#111827] transition-colors"
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-charcoal/60 hover:text-charcoal transition-colors"
                                     >
                                         {showPassword ? (
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -633,12 +658,12 @@ const SignUp = () => {
                                     </button>
                                 </div>
                                 {errors.password && (
-                                    <span className="text-[#B91C1C] text-sm mt-1">{errors.password.message}</span>
+                                    <span className="text-copper text-sm mt-1 font-dm-sans">{errors.password.message}</span>
                                 )}
                             </div>
                             
                             {/* Captcha Section */}
-                            <div className="space-y-3 p-4 bg-[#F9FAFB] rounded-lg border border-[#E5E7EB]">
+                            <div className="space-y-3 p-4 bg-warm-beige rounded-lg border border-gray-300">
                                 <LoadCanvasTemplate />
                                 <div className="flex gap-2">
                                     <input
@@ -646,13 +671,13 @@ const SignUp = () => {
                                         name="captcha"
                                         id="signupCaptcha"
                                         placeholder="Enter captcha *"
-                                        className="flex-1 px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                         required
                                     />
                                     <button
                                         type="button"
                                         onClick={() => handleValidateCaptcha(document.getElementById('signupCaptcha'))}
-                                        className="px-6 py-3 bg-[#D0A96A] hover:bg-[#B8945A] text-[#111827] font-medium rounded-lg transition-all"
+                                        className="px-6 py-3 bg-soft-sand hover:bg-soft-sand/80 text-charcoal font-medium rounded-lg transition-all font-dm-sans"
                                     >
                                         Verify
                                     </button>
@@ -667,11 +692,11 @@ const SignUp = () => {
                                 id="terms"
                                 checked={termsAccepted}
                                 onChange={(e) => setTermsAccepted(e.target.checked)}
-                                className="w-4 h-4 border-[#E5E7EB] rounded text-[#0A3D91] focus:ring-[#0A3D91]"
+                                className="w-4 h-4 border-gray-300 rounded text-deep-teal focus:ring-deep-teal"
                             />
-                            <label htmlFor="terms" className="ml-2 text-sm text-[#6B7280]">
+                            <label htmlFor="terms" className="ml-2 text-sm text-charcoal/70 font-dm-sans">
                                 I have read and agree to all{' '}
-                                <Link to="/terms" className="text-[#0A3D91] hover:text-[#08306B] transition-colors" target="_blank">
+                                <Link to="/terms" className="text-deep-teal hover:text-mint-green transition-colors" target="_blank">
                                     Terms & conditions
                                 </Link>
                             </label>
@@ -681,7 +706,7 @@ const SignUp = () => {
                         <button
                             type="submit"
                             disabled={disabled || !termsAccepted}
-                            className="w-full py-3 px-6 bg-[#0A3D91] hover:bg-[#08306B] text-white font-medium rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                            className="w-full py-3 px-6 btn-elevated rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-dm-sans"
                         >
                             <span>Sign up</span>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -694,10 +719,10 @@ const SignUp = () => {
 
                         {/* Sign In Link */}
                         <div className="flex items-center justify-between mt-6 text-sm">
-                            <Link to="/login" className="text-[#0A3D91] hover:text-[#08306B] font-medium transition-colors">
+                            <Link to="/login" className="text-deep-teal hover:text-mint-green font-medium transition-colors font-dm-sans">
                                 Sign in
                             </Link>
-                            <Link to="/forgot-password" className="text-[#0A3D91] hover:text-[#08306B] transition-colors">
+                            <Link to="/forgot-password" className="text-deep-teal hover:text-mint-green transition-colors font-dm-sans">
                                 Lost password?
                             </Link>
                         </div>

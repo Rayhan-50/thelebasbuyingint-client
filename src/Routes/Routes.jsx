@@ -11,7 +11,7 @@ import useAdmin from "../hooks/useAdmin";
 import Loading from "../components/Loading/Loading";
 import Profile from "../pages/Dashboard/Profile";
 import NotFound from "../pages/NotFoumd";
-import Hero from "../pages/Hero";
+import ProductsCategory from "../pages/ProductsCategory";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 import Portfolio from "../pages/Portfolio";
@@ -20,15 +20,10 @@ import Products from "../pages/Products";
 import Services from "../pages/Services";
 import VideoSection from "../pages/VideoSection";
 import WhyChooseUs from "../pages/WhyChooseUs";
-// import CompanyProfile from "../pages/CompanyProfile/CompanyProfile";
-// import Contact from "../pages/Contact/Contact";
-// import InvestorConnection from "../pages/InvestorConnection/InvestorConnection";
-// import ProductsServices from "../pages/ProductsServices/ProductsServices";
-// import PerformersClub from "../pages/PerformersClub/PerformersClub";
-// import AddTeam from "../pages/Dashboard/AddTeam";
-// import ShowTeamMembers from "../pages/Dashboard/ShowTeamMembers";
-// import ShowPerformersClub from "../pages/Dashboard/ShowPerformersClub";
-// import ShowContactData from "../pages/Dashboard/ShowContactData";
+import ShowContactData from "../pages/Dashboard/ShowContactData";
+import AddCategoryForm from "../pages/Dashboard/AddCategoryForm";
+import ShowAllCategoriesData from "../pages/Dashboard/ShowAllCategoriesData";
+
 
 
 // Custom wrapper to restrict routes to admins
@@ -44,21 +39,18 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main />,
     children: [
-      // {
-      //   path: "/",
-      //   element: <Home />,
-      // },
+      
 
      {
         path: "/",
-        element: <Hero />,
+        element: <Home></Home>,
       },
       {
-        path: "/about-us",
+        path: "/about",
         element: <AboutUs />,
       },
       {
-        path: "/contact-us",
+        path: "/contact",
         element: <ContactUs />,
       },
       {
@@ -73,6 +65,14 @@ export const router = createBrowserRouter([
         path: "/products",
         element: <Products />,
       },
+
+
+      {
+        path: "/products/:category",
+        element: <ProductsCategory />,
+      },
+
+
       {
         path: "/services",
         element: <Services />,
@@ -97,30 +97,7 @@ export const router = createBrowserRouter([
         path: "signup",
         element: <SignUp></SignUp>,
       },
-      // {
-      //   path: "/company-profile",
-      //   element: <CompanyProfile></CompanyProfile>,
-      // },
-
-      // {
-      //   path: "/Contact",
-      //   element: <Contact></Contact>,
-      // },
-      // {
-      //   path: "/investor-connect",
-      //   element: <InvestorConnection></InvestorConnection>,
-      // },
-
-      //  {
-      //   path: "/products-services",
-      //   element: <ProductsServices></ProductsServices>,
-      // },
-      //  {
-      //   path: "/performers-club",
-      //   element: <PerformersClub></PerformersClub>,
-      // },
-
-
+      
  
     ],
   },
@@ -143,46 +120,38 @@ export const router = createBrowserRouter([
           
         ),
       },
-    //  {
-    //     path: "AddTeam",
-    //     element: (
-    //      <AdminRoute>
-    //           <AddTeam></AddTeam>
-    //       </AdminRoute>
+    
+   
+      {
+        path: "showContact",
+        element: (
+         <AdminRoute>
+            <ShowContactData></ShowContactData>
+         </AdminRoute>
            
           
-    //     ),
-    //   },
-    //    {
-    //     path: "showTeamMembers",
-    //     element: (
-    //      <AdminRoute>
-    //           <ShowTeamMembers></ShowTeamMembers>
-    //       </AdminRoute>
+        ),
+      },
+      {
+        path: "AddCategoryForm",
+        element: (
+         <AdminRoute>
+            <AddCategoryForm></AddCategoryForm>
+         </AdminRoute>
            
           
-    //     ),
-    //   },
-    //   {
-    //     path: "showPerformersClub",
-    //     element: (
-    //      <AdminRoute>
-    //          <ShowPerformersClub></ShowPerformersClub>
-    //       </AdminRoute>
+        ),
+      },
+       {
+        path: "ShowCategoryFormData",
+        element: (
+         <AdminRoute>
+           <ShowAllCategoriesData></ShowAllCategoriesData>
+         </AdminRoute>
            
           
-    //     ),
-    //   },
-    //   {
-    //     path: "showContact",
-    //     element: (
-    //      <AdminRoute>
-    //         <ShowContactData></ShowContactData>
-    //     </AdminRoute>
-           
-          
-    //     ),
-    //   },
+        ),
+      },
      
       // user routes
       {

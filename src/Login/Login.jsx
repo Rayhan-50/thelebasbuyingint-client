@@ -317,22 +317,58 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen w-full bg-[#0A3D91] flex fixed inset-0">
+        <div className="min-h-screen w-full bg-gradient-to-br from-deep-teal to-mint-green flex fixed inset-0">
             {/* Left Section with Illustration */}
-            <div className="hidden lg:flex lg:w-1/2 bg-[#FAF3E0] items-center justify-center p-12">
-                <div className="max-w-lg">
-                    <h2 className="text-4xl font-bold text-[#111827] mb-6">Yes! we're making progress</h2>
-                    <p className="text-xl text-[#111827]/90">every minute & every second</p>
+            <div className="hidden lg:flex lg:w-1/2 bg-warm-beige items-center justify-center p-12 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-10 left-10 w-20 h-20 bg-mint-green/30 rounded-full animate-float"></div>
+                    <div className="absolute bottom-20 right-20 w-16 h-16 bg-deep-teal/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+                    <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-light-sky-blue/20 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
+                </div>
+                
+                <div className="max-w-lg relative z-10">
+                    {/* Logo */}
+                    <div className="mb-8">
+                        <img
+                            src="/src/assets/logo_lebas.png"
+                            alt="The Lebas Buying"
+                            className="h-16 w-auto mx-auto mb-4"
+                        />
+                        <h2 className="text-4xl font-bold font-space-grotesk text-charcoal text-center">
+                            Welcome Back to <span className="text-deep-teal">The Lebas Buying</span>
+                        </h2>
+                    </div>
+                    
+                    <p className="text-xl font-dm-sans text-charcoal/80 mb-8 leading-relaxed text-center">
+                        Crafting Quality<br className="hidden sm:inline" />Garments with Precision
+                    </p>
+                    
+                    {/* Sign Up Button */}
+                    <div className="text-center">
+                        <p className="text-charcoal/70 font-dm-sans mb-4">Don't have an account?</p>
+                        <Link 
+                            to="/signup" 
+                            className="btn-elevated px-8 py-4 rounded-xl"
+                        >
+                            Sign Up Here
+                        </Link>
+                    </div>
                 </div>
             </div>
 
             {/* Right Section with Form */}
-            <div className="w-full lg:w-1/2 bg-[#FAF3E0] flex items-center justify-center p-6 overflow-y-auto">
+            <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 overflow-y-auto">
                 <div className="w-full max-w-md space-y-8">
                     {/* Logo and Welcome Text */}
                     <div className="text-center">
-                        <h1 className="text-3xl font-bold text-[#0A3D91] mb-2">Welcome!</h1>
-                        <p className="text-[#6B7280]">It's really nice to see you</p>
+                        <img
+                            src="/src/assets/logo_lebas.png"
+                            alt="The Lebas Buying"
+                            className="h-12 w-auto mx-auto mb-4 lg:hidden"
+                        />
+                        <h1 className="text-3xl font-bold font-space-grotesk text-deep-teal mb-2">Welcome!</h1>
+                        <p className="text-charcoal/70 font-dm-sans">It's really nice to see you</p>
                     </div>
 
                     {/* Login Form */}
@@ -344,7 +380,7 @@ const Login = () => {
                                     type="email"
                                     name="email"
                                     placeholder="Your email address *"
-                                    className="w-full px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                     required
                                 />
                             </div>
@@ -355,13 +391,13 @@ const Login = () => {
                                         type={showPassword ? "text" : "password"}
                                         name="password"
                                         placeholder="Enter password *"
-                                        className="w-full px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                         required
                                     />
                                     <button
                                         type="button"
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#6B7280] hover:text-[#111827] transition-colors"
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-charcoal/60 hover:text-charcoal transition-colors"
                                     >
                                         {showPassword ? (
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -379,7 +415,7 @@ const Login = () => {
                             </div>
 
                             {/* Captcha Section */}
-                            <div className="space-y-3 p-4 bg-[#F9FAFB] rounded-lg border border-[#E5E7EB]">
+                            <div className="space-y-3 p-4 bg-warm-beige rounded-lg border border-gray-300">
                                 <LoadCanvasTemplate />
                                 <div className="flex gap-2">
                                     <input
@@ -387,13 +423,13 @@ const Login = () => {
                                         name="captcha"
                                         id="captcha"
                                         placeholder="Enter captcha *"
-                                        className="flex-1 px-4 py-3 border border-[#E5E7EB] rounded-lg focus:outline-none focus:border-[#0A3D91] text-[#111827] transition-colors"
+                                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-mint-green text-charcoal transition-colors"
                                         required
                                     />
                                     <button
                                         type="button"
                                         onClick={() => handleValidateCaptcha({ target: document.getElementById('captcha') })}
-                                        className="px-6 py-3 bg-[#D0A96A] hover:bg-[#B8945A] text-[#111827] font-medium rounded-lg transition-all"
+                                        className="px-6 py-3 bg-soft-sand hover:bg-soft-sand/80 text-charcoal font-medium rounded-lg transition-all font-dm-sans"
                                     >
                                         Verify
                                     </button>
@@ -408,11 +444,11 @@ const Login = () => {
                                 id="terms"
                                 checked={termsAccepted}
                                 onChange={(e) => setTermsAccepted(e.target.checked)}
-                                className="w-4 h-4 border-[#E5E7EB] rounded text-[#0A3D91] focus:ring-[#0A3D91]"
+                                className="w-4 h-4 border-gray-300 rounded text-deep-teal focus:ring-deep-teal"
                             />
-                            <label htmlFor="terms" className="ml-2 text-sm text-[#6B7280]">
+                            <label htmlFor="terms" className="ml-2 text-sm text-charcoal/70 font-dm-sans">
                                 I have read and agree to all{' '}
-                                <Link to="/terms" className="text-[#0A3D91] hover:text-[#08306B] transition-colors" target="_blank">
+                                <Link to="/terms" className="text-deep-teal hover:text-mint-green transition-colors" target="_blank">
                                     Terms & conditions
                                 </Link>
                             </label>
@@ -422,7 +458,7 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={disabled || !termsAccepted}
-                            className="w-full py-3 px-6 bg-[#0A3D91] hover:bg-[#08306B] text-white font-medium rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                            className="w-full py-3 px-6 btn-elevated rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-dm-sans"
                         >
                             <span>Sign in</span>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -435,10 +471,10 @@ const Login = () => {
 
                         {/* Sign Up Link */}
                         <div className="flex items-center justify-between mt-6 text-sm">
-                            <Link to="/signup" className="text-[#0A3D91] hover:text-[#08306B] font-medium transition-colors">
+                            <Link to="/signup" className="text-deep-teal hover:text-mint-green font-medium transition-colors font-dm-sans">
                                 Sign up
                             </Link>
-                            <Link to="/forgot-password" className="text-[#0A3D91] hover:text-[#08306B] transition-colors">
+                            <Link to="/forgot-password" className="text-deep-teal hover:text-mint-green transition-colors font-dm-sans">
                                 Lost password?
                             </Link>
                         </div>
